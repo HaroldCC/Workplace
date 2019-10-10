@@ -1,7 +1,10 @@
 #include <iostream>
 
-/* run this program using the console pauser or add your own getch, system("pause") or input loop */
+//显示输入提示并获取输入信息
+void input(void){
+	
+}
 
-int main(int argc, char** argv) {
+int main(void) {
 	return 0;
 }
