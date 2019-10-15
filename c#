@@ -1,0 +1,121 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Csharp第五次上机
+{
+    //c创建MyMath类
+    public class MyMath
+    {
+        const double pi = Math.PI;
+        static double perimeter = 0;
+        static double area = 0;
+        static double volume = 0;
+
+        public void Perimeter(double r)            //求周长
+        {
+
+            Console.WriteLine("圆的周长 = {0}", perimeter = 2 * pi * r);
+        }
+
+        public void Area(double r)                  //求面积
+        {
+            Console.WriteLine("圆的面积 = {0}", area = pi * r * r);
+        }
+
+        public void Volume(double r)             //求球体积
+        {
+
+            Console.WriteLine("球的体积 = {0}", volume = 4 / 3 * pi * r * r * r);
+        }
+    }
+
+    //创建摄氏温度的类
+    public class TemperatureCelsius
+    {
+        public double degree = 0;       //摄氏温度
+        public double fahrenheit = 0;         //华氏温度
+
+        public double ToFahrebheit(double deg)
+        {
+
+            return fahrenheit = degree * 1.8 + 32;
+        }
+    }
+
+    //创建基类Person
+    public class Person
+    {
+        public String name;
+        public int age;
+
+        public Person(String name, int age)             //类构造函数
+        {
+            this.name = name;
+            this.age = age;
+        }
+        public void GetInfo()      
+        {
+            Console.WriteLine("Name:"+this.name);
+            Console.WriteLine("Age:" + this.age);
+        }
+    }
+
+    //派生类Teacher
+    public class Teacher : Person
+    {
+        public String teacherID;
+
+        public Teacher (String name, int age, String id) : base(name,age)        //派生类构造函数,使用base调用基类构造函数
+        {
+            this.teacherID = id;
+        }
+
+        public new void GetInfo()
+        {
+            base.GetInfo();
+            Console.WriteLine("teacherID:"+this.teacherID);
+        }
+    }
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            #region 创建MyMath类
+            ////创建MyMath，计算圆的周长，面积和球的体积
+            ////实验要求：创建类MyMath，包含常量PI；静态方法Perimeter（周长）、Area（面积）、Volume（体积）。
+
+            ////声明一个MyMath实例
+            //MyMath myMath = new MyMath();
+
+            //Console.Write("请输入半径：");
+            //double r;
+            //r = Convert.ToDouble(Console.ReadLine());
+
+
+            //myMath.Perimeter(r);
+            //myMath.Area(r);
+            //myMath.Volume(r);
+
+            //Console.ReadKey();
+            #endregion
+
+            #region 创建摄氏温度类
+            //TemperatureCelsius temper = new TemperatureCelsius();
+            //Console.Write("请输入摄氏温度：");
+            //temper.degree = Convert.ToDouble(Console.ReadLine());
+
+            //Console.WriteLine("摄氏温度 = {0}， 华氏温度 = {1}", temper.degree, temper.ToFahrebheit(temper.degree));
+
+            //Console.ReadKey();
+            #endregion
+
+            Teacher wang = new Teacher("王老师", 25, "201701064229");
+            wang.GetInfo();
+
+            Console.ReadKey();
+        }
+    }
+}
