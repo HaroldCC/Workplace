@@ -1,3 +1,4 @@
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " 显示相关  
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -14,14 +15,14 @@ autocmd InsertEnter * se cul    " 用浅色高亮当前行
 set ruler           " 显示标尺  
 set showcmd         " 输入的命令显示出来，看的清楚些  
 set cmdheight=1     " 命令行（在状态行下）的高度，设置为1  
-"set whichwrap+=<,>,h,l   " 允许backspace和光标键跨越行边界(不建议)  
+set whichwrap+=<,>,h,l   " 允许backspace和光标键跨越行边界(不建议)  
 set scrolloff=3     " 光标移动到buffer的顶部和底部时保持3行距离  
 set novisualbell    " 不要闪烁(不明白)  
 set statusline=%F%m%r%h%w\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ [POS=%l,%v][%p%%]\ %{strftime(\"%d/%m/%y\ -\ %H:%M\")}   "状态行显示的内容  
 set laststatus=1    " 启动显示状态行(1),总是显示状态行(2)  
 set foldenable      " 允许折叠  
 set foldmethod=manual   " 手动折叠  
-set background=dark "背景使用黑色 
+"set background=dark "背景使用黑色 
 set nocompatible  "去掉讨厌的有关vi一致性模式，避免以前版本的一些bug和局限
 set backspace=indent,eol,start  
 " 显示中文帮助
@@ -53,22 +54,31 @@ func! SetTitle()
     if &filetype == 'sh' 
         call setline(1,"\#########################################################################") 
         call append(line("."), "\# File Name     : ".expand("%")) 
-        call append(line(".")+1, "\# Author        : enjoy5512") 
-        call append(line(".")+2, "\# mail          : enjoy5512@163.com") 
-        call append(line(".")+3, "\# Created Time  : ".strftime("%c")) 
-        call append(line(".")+4, "\#########################################################################") 
-        call append(line(".")+5, "") 
-        call append(line(".")+6, "\#!/bin/bash") 
-    call append(line(".")+7, "")
+        call append(line(".")+1, "\# Author        : Harold") 
+        call append(line(".")+2, "\# mail          : 2106562095@qq.com") 
+        call append(line(".")+3, "\# github          : www.github.com/Haroldcc") 
+        call append(line(".")+4, "\# Created Time  : ".strftime("%c")) 
+        call append(line(".")+5, "\#########################################################################") 
+        call append(line(".")+6, "") 
+        call append(line(".")+7, "\#!/bin/bash") 
     call append(line(".")+8, "")
+    call append(line(".")+9, "")
     else 
-        call setline(1, "/*************************************************************************") 
-        call append(line("."), "    > File Name       : ".expand("%")) 
-        call append(line(".")+1, "    > Author          : enjoy5512") 
-        call append(line(".")+2, "    > Mail            : enjoy5512@163.com ") 
-        call append(line(".")+3, "    > Created Time    : ".strftime("%c")) 
-        call append(line(".")+4, " ************************************************************************/") 
-        call append(line(".")+5, "")
+         call setline(1, "/*************************************************************************")
+
+        call append(line("."), "    > File Name       : ".expand("%"))
+
+        call append(line(".")+1, "    > Author          : Harold")
+
+        call append(line(".")+2, "    > Mail            : 2106562095@qq.com")
+
+        call append(line(".")+3, "    > Github          : www.github.com/Haroldcc")
+
+        call append(line(".")+4, "    > Created Time    : ".strftime("%c"))
+
+        call append(line(".")+5, " ************************************************************************/")
+
+        call append(line(".")+6, "")
     endif
     if &filetype == 'cpp'
         call append(line(".")+6, "#include<iostream>")
@@ -139,7 +149,7 @@ set nobackup
 "自动保存
 set autowrite
 set ruler                   " 打开状态栏标尺
-set cursorline              " 突出显示当前行
+"set cursorline              " 突出显示当前行
 set magic                   " 设置魔术
 set guioptions-=T           " 隐藏工具栏
 set guioptions-=m           " 隐藏菜单栏
@@ -226,4 +236,3 @@ endfunction
 filetype plugin indent on 
 "打开文件类型检测, 加了这句才可以用智能补全
 set completeopt=longest,menu
-    
