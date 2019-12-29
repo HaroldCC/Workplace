@@ -1,0 +1,9 @@
+{
+    "files.associations": {
+        "array": "cpp",
+        "iomanip": "cpp",
+        "iostream": "cpp",
+        "iosfwd": "cpp"
+    },
+    "commentTranslate.targetLanguage": "zh-CN"
+}
