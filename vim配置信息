@@ -3,6 +3,12 @@
 " - Avoid using standard Vim directory names like 'plugin'
 call plug#begin('~/.vim/plugged')
 
+" 格式化
+Plug 'rhysd/vim-clang-format'
+Plug 'sbdchd/neoformat'
+
+nmap <Leader>C :ClangFormatAutoToggle<CR>
+
 "进入vim会显示打开过的文件
 Plug 'mhinz/vim-startify'
 
@@ -25,6 +31,9 @@ let g:cpp_no_function_highlight = 1
 
 "airine 底部标题栏
 Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+let g:airline_theme='light'
+let g:airline_powerline_fonts = 1
 
 "语言静态检查
 Plug 'scrooloose/syntastic'
@@ -55,6 +64,9 @@ highlight clear ALEErrorSign
 highlight clear ALEWarningSign
 " Set this. Airline will handle the rest.
 let g:airline#extensions#ale#enabled = 1
+
+"快速注释插件
+Plug 'tpope/vim-commentary'
 
 
 Plug 'neoclide/coc.nvim'
@@ -193,8 +205,42 @@ nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
 nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
 
 
+Plug 'ryanoasis/vim-devicons'
+
+
+
+"配色
+Plug 'mhartington/oceanic-next'
+
+Plug 'sainnhe/vim-color-forest-night'
+Plug 'sheerun/vim-polyglot'
+
+Plug 'KKPMW/sacredforest-vim'
+set termguicolors
+
+
 " Initialize plugin system
 call plug#end()
+
+
+
+
+
+"配色方案
+" Theme
+ syntax enable
+" for vim 7
+ set t_Co=256
+
+" for vim 8
+ if (has("termguicolors"))
+  set termguicolors
+ endif
+
+colorscheme OceanicNext
+
+
+
 
 
 
@@ -207,7 +253,7 @@ set shortmess=atI   " 启动的时候不显示那个援助乌干达儿童的提�
 "winpos 5 5         " 设定窗口位置  
 "set lines=30 columns=85    " 设定窗口大小  
 set nu              " 显示行号  
-set go=             " 不要图形按钮  
+"set go=             " 不要图形按钮  
 "color asmanian2     " 设置背景主题  
 set guifont=Courier_New:h10:cANSI   " 设置字体  
 syntax on           " 语法高亮  
@@ -231,8 +277,7 @@ if version >= 603
     set helplang=cn
     set encoding=utf-8
 endif
-" 设置配色方案
-colorscheme delek
+
 "字体 
 "if (has("gui_running")) 
 "   set guifont=Bitstream\ Vera\ Sans\ Mono\ 10 
@@ -437,3 +482,9 @@ endfunction
 filetype plugin indent on 
 "打开文件类型检测, 加了这句才可以用智能补全
 set completeopt=longest,menu
+
+"没有提示音
+set vb t_vb=
+
+"设置字体
+set guifont=DroidSansMono\ Nerd\ Font:h11
